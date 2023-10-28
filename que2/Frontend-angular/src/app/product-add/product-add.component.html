@@ -1,0 +1,35 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h2>Add Product</h2>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form [formGroup]="addForm" novalidate class="p-4 border rounded shadow">
+        <div class="form-group">
+          <label for="Cname">Select Category</label>
+          <select class="form-control" (click)="OnSelect($event)" formControlName="Cname">
+            <option disabled selected>Choose Category</option>
+            <option *ngFor="let i of ddCategory" [value]="i.Cname">{{i.Cname}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="Pname">Product Name</label>
+          <input type="text" formControlName="Pname" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="color">Color</label>
+          <input type="text" formControlName="color" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input type="number" formControlName="price" class="form-control" />
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-success" (click)="onSubmit()">Submit Form</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

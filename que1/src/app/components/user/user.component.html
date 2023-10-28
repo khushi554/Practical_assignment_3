@@ -1,0 +1,46 @@
+<h2> user’s personal details, take input and display data on submit..</h2>
+<form [formGroup]="UserForm" (submit)="OnSubmit()">
+  <table>
+    <tr>
+      <td>User name</td>
+      <td><input type="text" name="username" id="username" formControlName="username"></td>
+      <td *ngIf="UserForm.controls['username'].touched && UserForm.controls['username'].errors">
+        <span *ngIf="UserForm.controls['username'].errors['required']">Please Enter Username</span>
+      </td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><input type="text" name="email" id="email" formControlName="email"></td>
+      <td *ngIf="UserForm.controls['email'].touched && UserForm.controls['email'].errors">
+        <span *ngIf="UserForm.controls['email'].errors['required']">Please Enter Email</span>
+        <span *ngIf="UserForm.controls['email'].errors['email']">Enter Email Properly</span>
+      </td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td><input type="password" name="password" id="password" formControlName="password"></td>
+      <td *ngIf="UserForm.controls['password'].touched && UserForm.controls['password'].errors">
+        <span *ngIf="UserForm.controls['password'].errors['required']">Please Enter Password</span>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="submit" value="Submit"></td>
+    </tr>
+  </table>
+</form>
+
+<table border="1" *ngIf="isSubmitted">
+  <tr>
+    <td>UserName</td>
+    <td>{{user.username}}</td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>{{user.email}}</td>
+  </tr>
+  <tr>
+    <td>Password</td>
+    <td>{{user.password}}</td>
+  </tr>
+</table>

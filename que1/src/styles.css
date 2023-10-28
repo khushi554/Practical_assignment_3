@@ -1,0 +1,31 @@
+@import "@ng-select/ng-select/themes/material.theme.css";
+
+a{
+font-size: 20px;
+}
+
+h2{
+    text-align: center;
+    border-bottom:palevioletred 2px solid;
+    
+}
+
+table {
+    font-size: 25px;
+}
+
+td {
+    padding-right: 100px;
+}
+
+ul {
+    font-size: 25px;
+}
+
+label {
+    font-size: 25px;
+}
+
+ng-select {
+    font-size: 25px;
+}

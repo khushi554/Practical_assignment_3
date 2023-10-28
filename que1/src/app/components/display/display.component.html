@@ -1,0 +1,44 @@
+<h2>Display integer, string, date data in a component.</h2>
+<table>
+  <tr>
+    <td>String  </td>
+    <td style="font-weight:bold;">VahicleName: {{vahicleName}}</td>
+  </tr>
+  <tr>
+    <td>Integer</td>
+    <td style="font-weight:bold;">vahiclePrice: {{vahiclePrice}}</td>
+  </tr>
+  <tr>
+    <td>Date</td>
+    <td style="font-weight:bold;">ManufactureDate: {{manufactureDate | date: 'dd MMM, yyyy'}}</td>
+  </tr>
+</table>
+<h2>Display array values in html list.</h2>
+<ul type="square">
+  <li *ngFor="let vahicle of vahicles">
+    {{vahicle}}
+  </li>
+</ul>
+<h2>Display array in combo.</h2>
+<form>
+  <label for="cm1">Vahicle</label>
+  <ng-select name="cm1" id="cm1" [(ngModel)]="selectedvahicle" (change)="popUp()">
+    <ng-option *ngFor="let v of vahicle" [value]="v.id">{{v.name}}</ng-option>
+  </ng-select>
+</form>
+<h2>Take a combo with two values (textbox, textarea). Display textbox or textarea
+  depending on selection of a combo.</h2>
+<form>
+  <label for="cm1">Input Type</label>
+  <ng-select name="cm2" id="cm2" [(ngModel)]="selectedInput">
+    <ng-option *ngFor="let n of input" [value]="n">{{n}}</ng-option>
+  </ng-select>
+  <div>
+    <label for="name"></label>
+    <input type="text" name="name" id="name" *ngIf="selectedInput=='textBox'">
+  </div>
+  <div>
+    <label for="Address"></label>
+    <textarea name="address" id="address" cols="30" *ngIf="selectedInput=='textArea'" rows="10"></textarea>
+  </div>
+</form>

@@ -1,0 +1,44 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h2>Edit-Product</h2>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form [formGroup]="editProduct" (ngSubmit)="onUpdate()" novalidate class="p-4 border rounded shadow">
+          <div class="form-group">
+            <input type="hidden" [(ngModel)]="getProduct._id" formControlName="_id">
+
+            <label for="Cname">Select Category</label>
+              <select  class="form-control" (click)="OnSelect($event)" formControlName="Cname" [(ngModel)]="getProduct.Cname">
+                <option disabled>Choose Category</option>
+                <option *ngFor="let i of ddCategory"   value={{i.Cname}} >{{i.Cname}}</option>                
+              </select>
+            </div>
+          <div class="form-group">
+            <label for="Pname">Product Name</label>
+              <input type="text" formControlName="Pname" class="form-control" [(ngModel)]="getProduct.Pname"/>
+          </div>
+          <div class="form-group">
+            <label for="color">Color</label>
+              <input type="text" formControlName="color" class="form-control" [(ngModel)]="getProduct.color"/>
+          </div>
+          <div class="form-group">
+            <label for="price">Price</label>
+              <input type="number" formControlName="price" class="form-control" [(ngModel)]="getProduct.price"/>
+          </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-success" (click)="onUpdate()">
+                Update Product
+              </button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+
+  
